@@ -40,5 +40,42 @@ export const db = {
             id: 3,
             designation: 'GL4'
         },
+    ],
+    todos : [
+        {
+            id: "1",
+            name:"test1",
+            content:"content 1",
+            status : "WAITING",
+            user: "2"
+        },
+        {
+            id: "2",
+            name:"test 2",
+            content:"content 2",
+            status : "WAITING",
+            user : "1"
+        },
+        {
+            id: "3",
+            name:"test 3",
+            content:"content 3",
+            status : "IN_PROGRESS",
+            user: "1"
+        }
+    ],
+    users : [
+        {
+            id: "1",
+            name: "Ahmed",
+            email: "ahmed@gmail.com",
+            todos: ["2","3"]
+        },
+        {
+            id: "2",
+            name: "mazen",
+            email: "mazen@gmail.com",
+            todos: ["1"]
+        }
     ]
 }
