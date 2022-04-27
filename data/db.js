@@ -2,32 +2,26 @@ export const db = {
     students : [
         {
             id: 1,
-            name: 'Fatma Laribi',
+                name: 'Emna Boukhris',
             age: 22,
             gender: "FEMALE",
             classroom: 1
         },
         {
             id: 2,
-            name: 'Ahmed Mahfoudhi',
+            name: 'Houssem Saafi',
             age: 22,
             gender: "MALE",
             classroom: 2
         },
         {
             id: 3,
-            name: 'Nadine Boukadida',
+            name: 'Safa Kedidi',
             age: 22,
             gender: "FEMALE",
             classroom: 3
         },
-        {
-            id: 4,
-            name: 'Mohamed Aziz Khayati',
-            age: 22,
-            gender: "MALE",
-            classroom: 1
-        }
+
     ],
     classroom: [
         {
@@ -67,14 +61,14 @@ export const db = {
     users : [
         {
             id: "1",
-            name: "Ahmed",
-            email: "ahmed@gmail.com",
+            name: "Houssem",
+            email: "houssem@gmail.com",
             todos: ["2","3"]
         },
         {
             id: "2",
-            name: "mazen",
-            email: "mazen@gmail.com",
+            name: "emna",
+            email: "emna@gmail.com",
             todos: ["1"]
         }
     ]
