@@ -70,4 +70,7 @@ addClassroom(classroom:AddClassroomInput):Classroom
     addTodo(todo:AddTodoInput):Todo!
     updateTodo(id:Int!,todo:UpdateTodoInput):Todo!
 }
+type Subscription {
+    newTodo: Todo!
+}
 

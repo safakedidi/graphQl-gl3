@@ -5,9 +5,10 @@ export  const Mutation={
     addClassroom: (parent, {addClassroomInput}, {db}, info) => {
         const newClassroom={id:uuidv4(),...addClassroomInput}
         db.classroom.push(newClassroom);
+        pubsub.publish("todo", { todo: { todo: newTodo, mutation: "ADD" } });
         return newClassroom;
     },
-    addTodo:(parent, {addTodoInput}, {db}, info)=>{
+    addTodo:(parent, {addTodoInput}, {db,pubsub}, info)=>{
         const user=db.users.some((user)=>user["id"]===addTodoInput.userId);
         if(!user){
             throw  new Error(` user ${addTodoInput.userId} inexistant`);
@@ -16,7 +17,7 @@ export  const Mutation={
         db.classroom.push(newTodo);
         return newTodo;
     },
-    updateTodo: (parent, {id,updateTodoInput}, {db}, info) => {
+    updateTodo: (parent, {id,updateTodoInput}, {db,pubsub}, info) => {
         const todo = db.todos.find((todo) => todo.id === id);
         if(!TestIdUser((db.users, "id", addTodoInput.user))){
             throw new Error(" l'userId  n'existe pas")
@@ -30,16 +31,18 @@ export  const Mutation={
                 todo[i] = updateTodoInput[i];
             }
         }
+        pubsub.publish("todo", { todo: { todo, mutation: "UPDATE" } });
         return todo
 
     },
 
-    deleteTodo: (parent, { id }, { db,}, info) => {
+    deleteTodo: (parent, { id }, { db,pubsub}, info) => {
         const todo = db.todos.find((todo) => todo.id === id);
         if(! todo) {
             throw new Error(" l'id de todo n'existe pas")
         } else {
             const [todo] = db.todos.splice(todo, 1);
+            pubsub.publish("todo", { todo: { todo, mutation: "DELETE" } });
             return todo;
         }
     },
