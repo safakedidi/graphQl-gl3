@@ -13,6 +13,9 @@ type Student {
     gender: Gender!
     classroom: Classroom
 }
+input AddClassroomInput{
+designation:String
+}
 type Classroom {
     id: ID!
     designation: String!
@@ -40,6 +43,17 @@ type User{
     email: String
     todos: [Todo]
 }
+input AddTodoInput{
+    name: String!
+    content: String!
+    userId: Int!
+}
+input UpdateTodoInput{
+    name: String
+    content: String
+    status: TodoStatus
+    userId: String
+}
 
 type Query {
     hello(name: String): String!
@@ -50,5 +64,10 @@ type Query {
     getTodo(id: String) : Todo
     getUser(id: String): User
     getUsers: [User]
+}
+type Mutation{
+addClassroom(classroom:AddClassroomInput):Classroom
+    addTodo(todo:AddTodoInput):Todo!
+    updateTodo(id:Int!,todo:UpdateTodoInput):Todo!
 }
 
