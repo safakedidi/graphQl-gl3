@@ -1,7 +1,7 @@
 export const Subscription = {
-    newClassroom: {
+    newTodo: {
         subscribe(parent, args, { pubsub }, info) {
-            return pubsub.asyncIterator('newClassroom');
+            return pubsub.asyncIterator('newTodo');
         }
     }
 }
